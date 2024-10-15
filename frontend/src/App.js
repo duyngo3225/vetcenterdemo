@@ -7,7 +7,7 @@ const App = () => {
       <Header />
       <main className="py-3">
         <Container>
-    <h1>Welcome to Vet Center</h1>
+    <h1>UMSL Veteran's Center Secure Page</h1>
     </Container>
     </main>
     <Footer />
