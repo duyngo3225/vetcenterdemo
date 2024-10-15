@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Page</title>
+    <style>
+        /* Styling for the navigation bar */
+        .navbar {
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 2px -2px gray;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .box {
+            background-color: #808080;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            width: 75px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .box:hover {
+            background-color: #5a5a5a;
+        }
+
+        .box-scan {
+            background-color: #007bff;
+            width: 150px;
+            font-size: 18px;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        .box-scan:hover {
+            background-color: #0056b3;
+        }
+
+        .content {
+            margin-top: 100px;
+            padding: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100px;
+            margin-bottom: 20px;
+        }
+
+        /* Table styling */
+        table {
+            margin: 20px auto;
+            width: 50%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+
+        th {
+            background-color: #333;
+            color: white;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            padding-top: 100px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-height: 80%;
+            overflow: auto;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .pdf-viewer {
+            width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Updated Navigation bar containing the buttons -->
+<div class="navbar">
+    <div class="container">
+        <!-- Scan button -->
+        <div id="scanBtn" class="box box-scan">Scan</div>
+        
+        <!-- Other buttons - Removed href="#" and used div instead of anchor tags -->
+        <div id="coeBtn" class="box">COE</div>
+        <div id="enrollmentBtn" class="box">Enrollment MG</div>
+        <div id="scheduleBtn" class="box">Schedule</div>
+        <div id="dd214Btn" class="box">DD214</div>
+        <div id="tarBtn" class="box">TAR</div>
+        <div id="awardLetterBtn" class="box">Award Letter</div>
+    </div>
+</div>
+
+
+    <!-- Content of the page -->
+    <div class="content">
+        <img src="C:/Users/Sir Manley/Downloads/Fall 2024/INFSYS 4850 Rottman/Teams Docs for Program/Picture1.2.jpg" alt="Company Logo">
+        <h1>Welcome to the Secure Page</h1>
+        <p>Click the "Scan" button to display data.</p>
+
+        <!-- Placeholder for the table -->
+        <div id="tableContainer"></div>
+    </div>
+
+    <!-- Modals for each button -->
+    <div id="scheduleModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Schedule Instructions</h2>
+            <embed src="C:/Users/Sir Manley/Downloads/Fall 2024/INFSYS 4850 Rottman/Teams Docs for Program/Schedule slide show.pdf" class="pdf-viewer" type="application/pdf">
+        </div>
+    </div>
+
+    <div id="coeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>COE Instructions</h2>
+            <embed src="C:/Users/Sir Manley/Downloads/Fall 2024/INFSYS 4850 Rottman/Teams Docs for Program/COE.pdf" class="pdf-viewer" type="application/pdf">
+        </div>
+    </div>
+
+    <div id="enrollmentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Enrollment Manager Instructions</h2>
+            <embed src="C:/Users/Sir Manley/Downloads/Fall 2024/INFSYS 4850 Rottman/Teams Docs for Program/Enrollment Manager.pdf" class="pdf-viewer" type="application/pdf">
+        </div>
+    </div>
+
+    <div id="dd214Modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>DD214 Instructions</h2>
+            <embed src="C:/Users/Sir Manley/Downloads/Fall 2024/INFSYS 4850 Rottman/Teams Docs for Program/DD214.pdf" class="pdf-viewer" type="application/pdf">
+        </div>
+    </div>
+
+    <div id="tarModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>TAR Instructions</h2>
+            <embed src="C:/Users/Sir Manley/Downloads/Fall 2024/INFSYS 4850 Rottman/Teams Docs for Program/TAR.pdf" class="pdf-viewer" type="application/pdf">
+        </div>
+    </div>
+
+    <div id="awardLetterModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Award Letter Instructions</h2>
+            <embed src="C:/Users/Sir Manley/Downloads/Fall 2024/INFSYS 4850 Rottman/Teams Docs for Program/Award Letter.pdf" class="pdf-viewer" type="application/pdf">
+        </div>
+    </div>
+
+    <!-- JavaScript to handle modals and Scan button -->
+    <script>
+        const modals = {
+            coe: document.getElementById("coeModal"),
+            enrollment: document.getElementById("enrollmentModal"),
+            schedule: document.getElementById("scheduleModal"),
+            dd214: document.getElementById("dd214Modal"),
+            tar: document.getElementById("tarModal"),
+            awardLetter: document.getElementById("awardLetterModal"),
+        };
+
+        function openModal(modal) {
+            modal.style.display = "block";
+        }
+
+        function closeModal(modal) {
+            modal.style.display = "none";
+        }
+
+        // Add event listeners for each button
+        document.getElementById("coeBtn").onclick = function() {
+            openModal(modals.coe);
+        };
+        document.getElementById("enrollmentBtn").onclick = function() {
+            openModal(modals.enrollment);
+        };
+        document.getElementById("scheduleBtn").onclick = function() {
+            openModal(modals.schedule);
+        };
+        document.getElementById("dd214Btn").onclick = function() {
+            openModal(modals.dd214);
+        };
+        document.getElementById("tarBtn").onclick = function() {
+            openModal(modals.tar);
+        };
+        document.getElementById("awardLetterBtn").onclick = function() {
+            openModal(modals.awardLetter);
+        };
+
+        // Close modal when the user clicks on <span> (x)
+        const closeButtons = document.getElementsByClassName("close");
+        for (let closeButton of closeButtons) {
+            closeButton.onclick = function() {
+                const modal = closeButton.closest(".modal");
+                closeModal(modal);
+            };
+        }
+
+        // Close modal when clicking outside of the modal
+        window.onclick = function(event) {
+            for (let modal of Object.values(modals)) {
+                if (event.target == modal) {
+                    closeModal(modal);
+                }
+            }
+        };
+
+// Helper function to clean up benefit descriptions
+function cleanBenefit(benefit) {
+    if (!benefit || typeof benefit !== 'string') return 'Unknown';  // Handle empty or non-string benefit entries
+
+    if (benefit.includes("Missouri Returning Heroes")) {
+        return "Missouri Returning Heroes";
+    } else if (benefit.includes("Chapter 33 Post 9/11")) {
+        return "CH33";
+    } else if (benefit.includes("Chapter 31 VocRehab")) {
+        return "CH31";
+    } else if (benefit.includes("State Tuition Assistance Deadline")) {
+        return "State TA";
+    } else if (benefit.includes("Chapter 35")) {
+        return "CH35";
+    } else if (benefit.includes("Chapter 30 MGIB")) {
+        return "CH30";
+    } else if (benefit.includes("Federal Tuition Assistance Deadline")) {
+        return "FED TA";
+    } else {
+        return benefit;  // Return the original benefit if no match is found
+    }
+}
+
+// Function to handle the Scan button click
+document.getElementById('scanBtn').onclick = function(event) {
+    event.preventDefault();  // Prevent default behavior
+    console.log("Scan button clicked");  // Log the click event to ensure it works
+
+    // Fetch data from the server (Node.js)
+    fetch('/scan')
+        .then(response => {
+            if (!response.ok) {
+                console.error('Error fetching data:', response.statusText);
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Data received from server:", data);  // Log received data
+
+            if (data.length === 0) {
+                document.getElementById('tableContainer').innerHTML = "<p>No data available</p>";
+                return;
+            }
+
+            // Generate table HTML with the new columns
+            let tableHTML = `<table>
+                <tr>
+                    <th>Name</th>
+                    <th>Student ID</th>
+                    <th>Benefit</th>
+                    <th>Required Docs</th>
+                </tr>`;
+
+            // Loop through data and create table rows
+            data.forEach(item => {
+                const name = item["Last Name, First Name (Legal Name)"] || 'Unknown';  // Handle missing names
+                const studentID = item["Student ID # (This is NOT your Social Security Number or SSO ID)"] || 'N/A';  // Handle missing IDs
+                const benefit = cleanBenefit(item["Benefit you plan to utilize this term (check all that apply):"]);  // Clean the benefit column
+
+                tableHTML += `<tr>
+                    <td>${name}</td>
+                    <td>${studentID}</td>
+                    <td>${benefit}</td>
+                    <td>Required Docs</td>  <!-- Placeholder for now -->
+                </tr>`;
+            });
+
+            tableHTML += `</table>`;
+            document.getElementById('tableContainer').innerHTML = tableHTML;
+        })
+        .catch(error => console.error('Error during fetch or rendering:', error));
+};
+
+    </script>
+
+</body>
+</html>
